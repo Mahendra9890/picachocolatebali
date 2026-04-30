@@ -20,6 +20,14 @@
 
 * {
   box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+img {
+  pointer-events: none;
+  -webkit-touch-callout: none;
 }
 html,
 body {
@@ -288,6 +296,11 @@ h3 {
   font-family: var(--font-display);
   margin: 0.2rem 0;
 }
+article {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
 h1 {
   font-size: clamp(2.05rem, 5vw, 4.1rem);
   line-height: 1.05;
@@ -461,15 +474,18 @@ p {
 }
 
 .about-img {
-  max-width: 320px;
+  max-width: 380px;
   margin: 0 auto;
 }
 .about-img img {
-  height: 380px;
+  height: 480px;
   width: 100%;
   object-fit: cover;
   object-position: center top;
   border-radius: 0.8rem;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
 }
 
 .faq-item {

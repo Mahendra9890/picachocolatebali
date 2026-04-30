@@ -120,3 +120,43 @@ document.querySelectorAll(".lang-toggle").forEach((btn) => {
   );
 });
 applyLanguage(currentLang);
+
+// Protect content from copying and downloading
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+  return false;
+});
+
+document.addEventListener("keydown", (e) => {
+  // Prevent Ctrl+C, Ctrl+X, Ctrl+S, Ctrl+P
+  if (
+    (e.ctrlKey || e.metaKey) &&
+    (e.key === "c" || e.key === "x" || e.key === "s" || e.key === "p")
+  ) {
+    e.preventDefault();
+    return false;
+  }
+  // Prevent F12 (Developer Tools)
+  if (e.key === "F12") {
+    e.preventDefault();
+    return false;
+  }
+});
+
+// Prevent text selection
+document.addEventListener("selectstart", (e) => {
+  e.preventDefault();
+  return false;
+});
+
+// Prevent image drag
+document.querySelectorAll("img").forEach((img) => {
+  img.addEventListener("dragstart", (e) => {
+    e.preventDefault();
+    return false;
+  });
+  img.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    return false;
+  });
+});
