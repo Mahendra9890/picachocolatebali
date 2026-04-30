@@ -1,12 +1,25 @@
 const mobileMenu = document.getElementById("mobileMenu");
+const mobileMenuClose = document.getElementById("mobileMenuClose");
 const hamburger = document.getElementById("hamburger");
 const progress = document.getElementById("topProgress");
 const header = document.querySelector("header");
 let currentLang = localStorage.getItem("picaLang") || "id";
 
 if (hamburger && mobileMenu) {
-  hamburger.addEventListener("click", () => mobileMenu.classList.toggle("open"));
+  hamburger.addEventListener("click", () =>
+    mobileMenu.classList.toggle("open"),
+  );
 }
+
+if (mobileMenuClose && mobileMenu) {
+  mobileMenuClose.addEventListener("click", () =>
+    mobileMenu.classList.remove("open"),
+  );
+}
+
+mobileMenu?.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => mobileMenu.classList.remove("open"));
+});
 
 document.querySelectorAll('a[href^="#"]').forEach((a) => {
   a.addEventListener("click", (e) => {
@@ -26,14 +39,17 @@ window.addEventListener("scroll", () => {
   if (header) header.classList.toggle("scrolled", window.scrollY > 8);
 });
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15 },
+);
 
 document.querySelectorAll(".animate").forEach((el) => observer.observe(el));
 
@@ -68,9 +84,13 @@ if (form) {
     const alamat = document.getElementById("alamat")?.value?.trim() || "";
     const pesan = document.getElementById("pesan")?.value?.trim() || "";
     const message = `Halo Admin Pica! 👋\n\nNama: ${nama}\nEmail: ${email}\nWhatsApp: ${wa}\nAlamat: ${alamat}\n\nPesan:\n${pesan}`;
-    window.open(`https://wa.me/628873418080?text=${encodeURIComponent(message)}`, "_blank");
+    window.open(
+      `https://wa.me/628873418080?text=${encodeURIComponent(message)}`,
+      "_blank",
+    );
     if (toast) {
-      toast.textContent = "Pesan terkirim! Kami akan segera menghubungi Anda. ✅";
+      toast.textContent =
+        "Pesan terkirim! Kami akan segera menghubungi Anda. ✅";
       toast.classList.add("show");
       setTimeout(() => toast.classList.remove("show"), 3200);
     }
@@ -95,6 +115,8 @@ function applyLanguage(lang) {
 }
 
 document.querySelectorAll(".lang-toggle").forEach((btn) => {
-  btn.addEventListener("click", () => applyLanguage(currentLang === "id" ? "en" : "id"));
+  btn.addEventListener("click", () =>
+    applyLanguage(currentLang === "id" ? "en" : "id"),
+  );
 });
 applyLanguage(currentLang);
