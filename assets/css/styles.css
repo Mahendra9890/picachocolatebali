@@ -105,7 +105,9 @@ footer .brand-sub{color:#b8ebcf}
 .foot{display:grid;gap:1rem}
 .foot h3{margin:.15rem 0 .4rem;font-size:1.2rem}
 .socials{display:flex;gap:.45rem;margin-top:.7rem}
-.social-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:999px;background:rgba(239,255,246,.16);border:1px solid rgba(239,255,246,.5);color:#effff6;font-size:.72rem;font-weight:700}
+.social-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:999px;background:rgba(239,255,246,.16);border:1px solid rgba(239,255,246,.5);color:#effff6;font-size:0;transition:transform .2s,background .2s}
+.social-icon svg{width:18px;height:18px;fill:currentColor}
+.social-icon:hover{background:rgba(255,255,255,.26);transform:translateY(-2px)}
 .footer-note{margin-top:1rem;color:#d8f6e5;font-size:.92rem}
 .muted{color:var(--text-muted)}
 
