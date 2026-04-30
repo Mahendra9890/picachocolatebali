@@ -175,8 +175,9 @@ nav {
   position: fixed;
   inset: 0;
   background: rgba(10, 45, 29, 0.92);
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   visibility: hidden;
   transition: 0.25s;
@@ -187,12 +188,15 @@ nav {
   visibility: visible;
 }
 .mobile-menu nav {
-  display: grid;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
   text-align: center;
   position: relative;
   width: min(88vw, 320px);
-  padding: 2.5rem 1.25rem 1.25rem;
+  padding: 2.5rem 1.25rem;
 }
 .mobile-close {
   position: absolute;
