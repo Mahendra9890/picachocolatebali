@@ -95,7 +95,13 @@ function renderFilters() {
   if (!filters) return;
   const lang = localStorage.getItem("picaLang") || "id";
   const allLabel = lang === "id" ? "Semua" : "All";
-  filters.innerHTML = categories.map((c) => `<button class="chip ${c === active ? "active" : ""}" data-cat="${c}">${c === "All" ? allLabel : c}</button>`).join("");
+  
+  // Get unique categories that actually have products
+  const categoriesWithProducts = ["All"];
+  const uniqueCats = [...new Set(products.map(p => p.cat))];
+  categoriesWithProducts.push(...uniqueCats.sort());
+  
+  filters.innerHTML = categoriesWithProducts.map((c) => `<button class="chip ${c === active ? "active" : ""}" data-cat="${c}">${c === "All" ? allLabel : c}</button>`).join("");
 }
 
 function renderProducts() {
@@ -103,7 +109,22 @@ function renderProducts() {
   const lang = localStorage.getItem("picaLang") || "id";
   const detailLabel = lang === "id" ? "Detail" : "Details";
   const orderLabel = lang === "id" ? "Pesan via WA" : "Order via WA";
+  const comingSoonLabel = lang === "id" ? "Segera Hadir" : "Coming Soon";
   const list = active === "All" ? products : products.filter((p) => p.cat === active);
+  
+  // If no products in selected category, show coming soon
+  if (list.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; min-height: 400px; text-align: center;">
+        <div>
+          <h2 style="font-family: var(--font-display); font-size: 2.2rem; color: var(--primary); margin: 0 0 1rem 0;">${comingSoonLabel}</h2>
+          <p style="color: var(--text-muted); font-size: 1.1rem; margin: 0;">${lang === "id" ? "Kategori ini akan segera tersedia" : "This category will be available soon"}</p>
+        </div>
+      </div>
+    `;
+    return;
+  }
+  
   grid.innerHTML = list.map((p) => `
     <article class="card product-card animate">
       <div class="media">
