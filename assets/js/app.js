@@ -91,6 +91,7 @@ function applyLanguage(lang) {
     idSpan?.classList.toggle("lang-active", lang === "id");
     enSpan?.classList.toggle("lang-active", lang === "en");
   });
+  window.dispatchEvent(new CustomEvent("languagechange", { detail: { lang } }));
 }
 
 document.querySelectorAll(".lang-toggle").forEach((btn) => {
