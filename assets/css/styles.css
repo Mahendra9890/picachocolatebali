@@ -34,6 +34,7 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   overflow-x: hidden;
+  padding-top: 3.8rem;
 }
 a {
   text-decoration: none;
@@ -71,9 +72,10 @@ img {
 }
 
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   z-index: 61;
   background: rgba(248, 255, 251, 0.92);
