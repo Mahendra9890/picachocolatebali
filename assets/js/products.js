@@ -1,108 +1,266 @@
+const fmt = (n) => `Rp ${n.toLocaleString("id-ID")}`;
+
 const products = [
   {
-    name: "90% Dark Chocolate Couverture",
-    name_en: "90% Dark Chocolate Couverture",
-    cat: "Dark Couverture",
-    img: "./gambar/90% Dark Chocolate Couverture.webp",
-    desc: "Rasa kakao intens untuk penikmat dark sejati.",
-    desc_en: "Intense cocoa profile for true dark lovers.",
-    price: "IDR 150.000",
+    name: "Temple Series 120g",
+    name_en: "Temple Series 120g",
+    cat: "Series 120g",
+    img: "./gambar/products/Pica_Temple_Series.png",
+    desc: "Koleksi cokelat bertema pura Bali, elegan untuk hadiah.",
+    desc_en: "Bali temple-themed chocolate collection, elegant for gifting.",
+    price: fmt(125000),
     detail:
-      "Pilihan paling premium untuk Anda yang suka karakter kakao kuat, clean finish, dan aftertaste elegan. Cocok untuk hadiah eksklusif atau pairing dengan kopi specialty.",
+      "Setiap potongan mengangkat keindahan arsitektur Bali ke dalam rasa. Tekstur halus, finishing premium, dan kemasan yang siap Anda berikan ke orang terpenting.",
     detail_en:
-      "A premium choice for those who love strong cocoa character, clean finish, and elegant aftertaste. Perfect for exclusive gifting or coffee pairing.",
-    ingredients:
-      "Cocoa mass, cocoa butter, gula, emulsifier (lecithin), natural vanilla.",
+      "Each piece celebrates Bali temple beauty in flavor. Smooth texture, premium finish, gift-ready packaging.",
+    ingredients: "Cocoa mass, cocoa butter, gula, susu bubuk, emulsifier (lecithin), perisa natural.",
   },
   {
-    name: "80% Dark Chocolate Couverture",
-    name_en: "80% Dark Chocolate Couverture",
-    cat: "Dark Couverture",
-    img: "./gambar/80% Dark Chocolate Couverture.webp",
-    desc: "Bold, seimbang, dan tetap smooth di lidah.",
-    desc_en: "Bold, balanced, and still smooth on the palate.",
-    price: "IDR 150.000",
+    name: "Instrument Series 120g",
+    name_en: "Instrument Series 120g",
+    cat: "Series 120g",
+    img: "./gambar/products/Pica_Instrument_Series.png",
+    desc: "Seri edisi khusus dengan karakter rasa yang memorable.",
+    desc_en: "Special edition series with memorable flavor character.",
+    price: fmt(125000),
     detail:
-      "Dirancang untuk pecinta dark chocolate yang ingin rasa tegas namun tetap ramah dinikmati harian. Karakter kakao dominan dengan sentuhan manis yang pas.",
-    detail_en:
-      "Crafted for dark chocolate lovers who want assertive flavor yet everyday-friendly enjoyment.",
-    ingredients:
-      "Cocoa mass, cocoa butter, gula, emulsifier (lecithin), natural vanilla.",
+      "Dirancang untuk pecinta cokelat yang ingin sesuatu yang berbeda dari produk massal. Rasa kaya, aftertaste bersih, dan presentasi mewah.",
+    detail_en: "Made for chocolate lovers who want something beyond mass-market products.",
+    ingredients: "Cocoa mass, cocoa butter, gula, susu bubuk, emulsifier (lecithin), perisa natural.",
   },
   {
-    name: "60% Dark Chocolate Couverture",
-    name_en: "60% Dark Chocolate Couverture",
-    cat: "Dark Couverture",
-    img: "./gambar/60% Dark Chocolate Couverture.webp",
-    desc: "Profil rasa aman untuk semua kalangan.",
-    desc_en: "A balanced profile that suits everyone.",
-    price: "IDR 150.000",
+    name: "Animal Series 120g",
+    name_en: "Animal Series 120g",
+    cat: "Series 120g",
+    img: "./gambar/products/Pica_Animal_Series.png",
+    desc: "Cokelat lucu nan premium, favorit keluarga dan anak.",
+    desc_en: "Playful yet premium chocolate, a family favorite.",
+    price: fmt(125000),
     detail:
-      "Keseimbangan terbaik antara intensitas kakao dan kelembutan rasa. Ideal sebagai oleh-oleh premium karena disukai banyak preferensi rasa.",
-    detail_en:
-      "Great balance between cocoa intensity and softness. Ideal as a premium gift for many taste preferences.",
-    ingredients:
-      "Cocoa mass, cocoa butter, gula, emulsifier (lecithin), natural vanilla.",
+      "Kombinasi visual menarik dan rasa autentik Pica. Cocok untuk oleh-oleh Bali yang terasa istimewa sejak pertama kali dibuka.",
+    detail_en: "Attractive visuals with authentic Pica taste. Perfect Bali souvenir.",
+    ingredients: "Cocoa mass, cocoa butter, gula, susu bubuk, emulsifier (lecithin), perisa natural.",
   },
   {
-    name: "56% Dark Chocolate Couverture",
-    name_en: "56% Dark Chocolate Couverture",
-    cat: "Dark Couverture",
-    img: "./gambar/56% Dark Chocolate Couverture.webp",
-    desc: "Creamy, ringan, dan mudah disukai.",
-    desc_en: "Creamy, light, and easy to enjoy.",
-    price: "IDR 150.000",
+    name: "Natural Series 120g",
+    name_en: "Natural Series 120g",
+    cat: "Series 120g",
+    img: "./gambar/products/Pica_Natural_Series.png",
+    desc: "Nuansa alam Bali dalam setiap gigitan cokelat.",
+    desc_en: "Bali nature notes in every chocolate bite.",
+    price: fmt(125000),
     detail:
-      "Varian nyaman untuk Anda yang ingin sensasi cokelat premium tanpa terlalu pahit. Pas untuk gift set, hampers, atau stok keluarga di rumah.",
-    detail_en:
-      "Comforting variant for those who want premium chocolate without too much bitterness.",
-    ingredients:
-      "Cocoa mass, cocoa butter, gula, emulsifier (lecithin), natural vanilla.",
+      "Menonjolkan keaslian bahan dan proses yang hati-hati. Anda akan merasakan kualitas dari aroma pembukaan hingga aftertaste.",
+    detail_en: "Highlights ingredient authenticity and careful craftsmanship from aroma to finish.",
+    ingredients: "Cocoa mass, cocoa butter, gula, susu bubuk, emulsifier (lecithin), perisa natural.",
   },
   {
-    name: "Cashew Milk Chocolate Couverture",
-    name_en: "Cashew Milk Chocolate Couverture",
+    name: "Culture Series 120g",
+    name_en: "Culture Series 120g",
+    cat: "Series 120g",
+    img: "./gambar/products/Pica_Culture_Series.png",
+    desc: "Merayakan warisan budaya Bali lewat cokelat artisan.",
+    desc_en: "Celebrates Balinese heritage through artisan chocolate.",
+    price: fmt(125000),
+    detail:
+      "Pilihan tepat bila Anda ingin memberi kesan mendalam: bukan sekadar manis, tetapi cerita Bali yang bisa dinikmati.",
+    detail_en: "Ideal when you want to give more than sweetness—a tastable Bali story.",
+    ingredients: "Cocoa mass, cocoa butter, gula, susu bubuk, emulsifier (lecithin), perisa natural.",
+  },
+  {
+    name: "Beach Series 120g",
+    name_en: "Beach Series 120g",
+    cat: "Series 120g",
+    img: "./gambar/products/Pica_Beach_Series.png",
+    desc: "Sensasi segar pantai Bali dalam koleksi premium.",
+    desc_en: "Fresh Bali beach sensation in a premium collection.",
+    price: fmt(125000),
+    detail:
+      "Rasa yang ringan namun tetap berkelas, dengan finishing yang membuat Anda ingin memesan lagi untuk orang tersayang.",
+    detail_en: "Light yet classy flavor with a finish that invites repeat gifting.",
+    ingredients: "Cocoa mass, cocoa butter, gula, susu bubuk, emulsifier (lecithin), perisa natural.",
+  },
+  {
+    name: "Destination Series 120g",
+    name_en: "Destination Series 120g",
+    cat: "Series 120g",
+    img: "./gambar/products/Pica_Destination_Series.png",
+    desc: "Edisi destinasi ikonik Bali, siap jadi hadiah premium.",
+    desc_en: "Iconic Bali destination edition, premium gift-ready.",
+    price: fmt(125000),
+    detail:
+      "Varian bestseller untuk corporate gift dan hampers. Kualitas konsisten, tampilan mewah, dan rasa yang diingat lama.",
+    detail_en: "Bestseller for corporate gifts and hampers with consistent quality and luxury look.",
+    ingredients: "Cocoa mass, cocoa butter, gula, susu bubuk, emulsifier (lecithin), perisa natural.",
+  },
+  {
+    name: "Avocado White Compound 40g",
+    name_en: "Avocado White Compound 40g",
+    cat: "White Compound",
+    img: "./gambar/products/Pica_Avocado.jpg",
+    desc: "White compound lembut dengan nuansa alpukat segar.",
+    desc_en: "Smooth white compound with fresh avocado notes.",
+    price: fmt(44000),
+    detail:
+      "Perpaduan creamy dan fruity yang unik. Cocok untuk Anda yang ingin cokelat Bali dengan twist rasa modern namun tetap premium.",
+    detail_en: "Unique creamy-fruity blend for modern premium Bali chocolate lovers.",
+    ingredients: "Gula, vegetable fat, susu bubuk, bubuk alpukat, emulsifier (lecithin), perisa natural.",
+  },
+  {
+    name: "Durian White Compound 40g",
+    name_en: "Durian White Compound 40g",
+    cat: "White Compound",
+    img: "./gambar/products/Pica_Durian.jpg",
+    desc: "White compound dengan karakter durian yang khas.",
+    desc_en: "White compound with distinctive durian character.",
+    price: fmt(44000),
+    detail:
+      "Untuk pecinta rasa tropis yang berani. Aroma kuat, tekstur halus, dan kualitas Pica yang membuatnya tetap terasa mewah.",
+    detail_en: "For bold tropical flavor lovers with smooth Pica quality.",
+    ingredients: "Gula, vegetable fat, susu bubuk, perisa durian, emulsifier (lecithin).",
+  },
+  {
+    name: "Mango White Compound 40g",
+    name_en: "Mango White Compound 40g",
+    cat: "White Compound",
+    img: "./gambar/products/Pica_Mango_2.jpeg",
+    desc: "Manis tropis mangga yang menyegarkan lidah.",
+    desc_en: "Refreshing tropical mango sweetness.",
+    price: fmt(44000),
+    detail:
+      "Rasa mangga yang cerah berpadu dengan white compound creamy. Pilihan aman untuk hadiah yang disukai banyak orang.",
+    detail_en: "Bright mango paired with creamy white compound—a crowd-pleasing gift.",
+    ingredients: "Gula, vegetable fat, susu bubuk, perisa mangga, emulsifier (lecithin).",
+  },
+  {
+    name: "Strawberry White Compound 40g",
+    name_en: "Strawberry White Compound 40g",
+    cat: "White Compound",
+    img: "./gambar/products/Pica_Strawberry.jpg",
+    desc: "Strawberry fruity yang lembut dan mudah disukai.",
+    desc_en: "Soft fruity strawberry everyone enjoys.",
+    price: fmt(44000),
+    detail:
+      "Varian paling ramah untuk semua umur. Cocok untuk stok rumah, hampers, atau oleh-oleh yang langsung disukai penerima.",
+    detail_en: "All-ages friendly variant for home stock, hampers, or souvenirs.",
+    ingredients: "Gula, vegetable fat, susu bubuk, perisa stroberi, emulsifier (lecithin).",
+  },
+  {
+    name: "56% Dark Couverture 70g",
+    name_en: "56% Dark Couverture 70g",
+    cat: "Dark Couverture",
+    img: "./gambar/products/Pica_56_Dark_Couverture.png",
+    desc: "Dark couverture seimbang, creamy, dan mudah dinikmati.",
+    desc_en: "Balanced dark couverture—creamy and approachable.",
+    price: fmt(55000),
+    detail:
+      "Titik tengah terbaik antara intensitas kakao dan kelembutan. Ideal untuk pemula dark chocolate maupun pecinta rasa klasik.",
+    detail_en: "Perfect midpoint between cocoa intensity and softness.",
+    ingredients: "Cocoa mass, cocoa butter, gula, emulsifier (lecithin), vanilla natural.",
+  },
+  {
+    name: "50% Milk Couverture 70g",
+    name_en: "50% Milk Couverture 70g",
     cat: "Milk Couverture",
-    img: "./gambar/Nibs & Salt Dark Chocolate Compound.webp",
-    desc: "Milk chocolate lembut dengan nuansa kacang.",
-    desc_en: "Smooth milk chocolate with nutty notes.",
-    price: "IDR 150.000",
+    img: "./gambar/products/Pica_50_Milk_Couverture.png",
+    desc: "Milk couverture klasik dengan body lembut.",
+    desc_en: "Classic milk couverture with soft body.",
+    price: fmt(37000),
     detail:
-      "Perpaduan creamy milk chocolate dan karakter kacang yang hangat menciptakan rasa mewah yang comforting. Sangat cocok untuk hadiah personal yang berkesan.",
-    detail_en:
-      "Creamy milk chocolate and warm nut character create a luxurious comforting taste.",
-    ingredients:
-      "Gula, cocoa butter, whole milk powder, cocoa mass, kacang mete, emulsifier (lecithin), natural vanilla.",
+      "Rasa susu yang hangat dan kakao yang jelas. Pilihan tepat bila Anda ingin cokelat premium yang nyaman dinikmati setiap hari.",
+    detail_en: "Warm milk notes with clear cocoa—comfortable everyday premium chocolate.",
+    ingredients: "Gula, cocoa butter, susu bubuk penuh, cocoa mass, emulsifier (lecithin), vanilla.",
   },
   {
-    name: "50% Milk Chocolate Couverture",
-    name_en: "50% Milk Chocolate Couverture",
-    cat: "Milk Couverture",
-    img: "./gambar/60% Dark Chocolate Couverture.webp",
-    desc: "Milk couverture klasik dengan body seimbang.",
-    desc_en: "Classic milk couverture with balanced body.",
-    price: "IDR 150.000",
+    name: "60% Dark Couverture 70g",
+    name_en: "60% Dark Couverture 70g",
+    cat: "Dark Couverture",
+    img: "./gambar/products/Pica_60_Dark_Couverture.jpeg",
+    desc: "Profil dark yang seimbang untuk semua selera.",
+    desc_en: "Balanced dark profile for every palate.",
+    price: fmt(37000),
     detail:
-      "Tekstur halus, milky, dan tetap punya karakter kakao yang jelas. Aman untuk semua umur dan jadi varian favorit untuk hampers premium.",
-    detail_en:
-      "Smooth and milky with clear cocoa character. A favorite for premium hampers.",
-    ingredients:
-      "Gula, cocoa butter, whole milk powder, cocoa mass, skimmed milk powder, emulsifier (lecithin), natural vanilla.",
+      "Cokelat asli dengan karakter kakao yang tegas namun tetap ramah. Sangat cocok untuk oleh-oleh yang ingin terasa berkelas.",
+    detail_en: "Authentic chocolate with assertive yet friendly cocoa character.",
+    ingredients: "Cocoa mass, cocoa butter, gula, emulsifier (lecithin), vanilla natural.",
   },
   {
-    name: "Mint Dark Chocolate Compound",
-    name_en: "Mint Dark Chocolate Compound",
+    name: "80% Dark Couverture 70g",
+    name_en: "80% Dark Couverture 70g",
+    cat: "Dark Couverture",
+    img: "./gambar/products/Pica_80_Dark_Couverture.png",
+    desc: "Dark bold dengan finish elegan di lidah.",
+    desc_en: "Bold dark with an elegant finish.",
+    price: fmt(37000),
+    detail:
+      "Untuk Anda yang menghargai kedalaman rasa kakao. Setiap gigitan terasa jujur, premium, dan layak dijadikan stok favorit.",
+    detail_en: "For those who value deep cocoa depth in every honest premium bite.",
+    ingredients: "Cocoa mass, cocoa butter, gula, emulsifier (lecithin), vanilla natural.",
+  },
+  {
+    name: "90% Dark Couverture 70g",
+    name_en: "90% Dark Couverture 70g",
+    cat: "Dark Couverture",
+    img: "./gambar/products/Pica_90_Dark_Couverture.jpeg",
+    desc: "Intensitas kakao tertinggi untuk penikmat dark sejati.",
+    desc_en: "Highest cocoa intensity for true dark lovers.",
+    price: fmt(37000),
+    detail:
+      "Puncak koleksi couverture Pica. Karakter kuat, aftertaste bersih, dan kualitas yang membuat Anda percaya diri memberikannya sebagai hadiah istimewa.",
+    detail_en: "Peak of Pica couverture—strong character and clean aftertaste for special gifting.",
+    ingredients: "Cocoa mass, cocoa butter, gula, emulsifier (lecithin), vanilla natural.",
+  },
+  {
+    name: "Mint Dark Compound 70g",
+    name_en: "Mint Dark Compound 70g",
     cat: "Dark Compound",
-    img: "./gambar/Mint Chocolate Compound.webp",
-    desc: "Dark cokelat segar dengan mint aromatic.",
+    img: "./gambar/products/Pica_Mint.jpg",
+    desc: "Dark chocolate segar dengan sentuhan mint aromatic.",
     desc_en: "Refreshing dark chocolate with aromatic mint.",
-    price: "IDR 150.000",
+    price: fmt(37000),
     detail:
-      "Sensasi mint yang bersih berpadu dengan cokelat hitam menciptakan finish segar dan memorable. Pilihan tepat untuk Anda yang ingin rasa unik dan modern.",
-    detail_en:
-      "Clean mint sensation blended with dark chocolate creates a fresh memorable finish.",
-    ingredients:
-      "Sugar, cocoa mass/powder, vegetable fat, cocoa butter, emulsifier (soy/sunflower lecithin), mint oil or peppermint flavour, natural vanilla.",
+      "Sensasi segar yang memorable tanpa mengalahkan karakter cokelat. Pilihan modern yang tetap terasa premium.",
+    detail_en: "Memorable freshness without losing chocolate character.",
+    ingredients: "Gula, cocoa mass/powder, lemak nabati, cocoa butter, emulsifier, perisa mint.",
+  },
+  {
+    name: "Nibs & Salt Dark Compound 70g",
+    name_en: "Nibs & Salt Dark Compound 70g",
+    cat: "Dark Compound",
+    img: "./gambar/products/Pica_Nibs_Salt.jpg",
+    desc: "Kontras renyah kakao nibs dan sentuhan garam halus.",
+    desc_en: "Crunchy cacao nibs contrast with a touch of salt.",
+    price: fmt(37000),
+    detail:
+      "Tekstur dan rasa yang berlapis—manis, pahit, dan savory seimbang. Varian signature untuk pecinta cokelat karakter kuat.",
+    detail_en: "Layered texture and taste—sweet, bitter, and savory in balance.",
+    ingredients: "Gula, cocoa mass, cocoa nibs, garam, lemak nabati, emulsifier (lecithin).",
+  },
+  {
+    name: "Salted Peanut Dark Compound 70g",
+    name_en: "Salted Peanut Dark Compound 70g",
+    cat: "Dark Compound",
+    img: "./gambar/products/Pica_Salted_Peanut.jpg",
+    desc: "Dark compound dengan kacang dan garam yang pas.",
+    desc_en: "Dark compound with balanced peanut and salt.",
+    price: fmt(37000),
+    detail:
+      "Perpaduan gurih dan cokelat yang addictive. Sangat cocok untuk menemani kopi sore atau jadi isi hampers premium.",
+    detail_en: "Savory-chocolate pairing perfect with afternoon coffee or premium hampers.",
+    ingredients: "Gula, cocoa mass, kacang tanah, garam, lemak nabati, emulsifier (lecithin).",
+  },
+  {
+    name: "Rice Krispies Dark Compound 70g",
+    name_en: "Rice Krispies Dark Compound 70g",
+    cat: "Dark Compound",
+    img: "./gambar/products/Pica_Rice_Krispies.jpeg",
+    desc: "Tekstur renyah rice krispies dalam dark compound.",
+    desc_en: "Crispy rice krispies texture in dark compound.",
+    price: fmt(37000),
+    detail:
+      "Sensasi crunch yang menyenangkan di setiap gigitan. Favorit anak-anak dan dewasa yang ingin cokelat dengan pengalaman makan unik.",
+    detail_en: "Fun crunch in every bite—loved by kids and adults alike.",
+    ingredients: "Gula, cocoa mass, rice krispies, lemak nabati, emulsifier (lecithin).",
   },
 ];
 
@@ -111,26 +269,21 @@ const grid = document.getElementById("productGrid");
 const modal = document.getElementById("productModal");
 let active = "All";
 
-// All categories - including those with no products yet
 const allCategories = [
   "Dark Couverture",
   "Milk Couverture",
-  "White Couverture",
+  "White Compound",
   "Dark Compound",
-  "Milk Compound",
   "Series 120g",
 ];
 
-// Get categories that have products
 const categoriesWithProducts = [...new Set(products.map((p) => p.cat))];
 
 function renderFilters() {
   if (!filters) return;
   const lang = localStorage.getItem("picaLang") || "id";
   const allLabel = lang === "id" ? "Semua" : "All";
-  const comingSoonLabel = lang === "id" ? "Segera Hadir" : "Coming Soon";
 
-  // Build categories array - only show unique categories, add "All" first
   const displayCategories = ["All", ...categoriesWithProducts.sort()];
 
   filters.innerHTML = displayCategories
@@ -140,20 +293,6 @@ function renderFilters() {
       return `<button class="chip ${isActive}" data-cat="${c}">${label}</button>`;
     })
     .join("");
-
-  // AddComing Soon badges for empty categories
-  const emptyCategories = allCategories.filter(
-    (c) => !categoriesWithProducts.includes(c),
-  );
-  if (emptyCategories.length > 0) {
-    const badges = emptyCategories
-      .map((c) => {
-        const isComingSoon = c === active ? "active" : "";
-        return `<button class="chip ${isComingSoon}" data-cat="${c}">${c}</button>`;
-      })
-      .join("");
-    filters.innerHTML += badges;
-  }
 }
 
 function renderProducts() {
@@ -165,7 +304,6 @@ function renderProducts() {
   const list =
     active === "All" ? products : products.filter((p) => p.cat === active);
 
-  // If no products in selected category, show coming soon
   if (list.length === 0) {
     grid.innerHTML = `
       <div style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; min-height: 400px; text-align: center;">
@@ -216,7 +354,9 @@ grid?.addEventListener("click", (e) => {
   const order = e.target.closest("[data-order]");
   if (order) {
     const productName = order.dataset.order;
-    const msg = `Halo Admin Pica! 👋\n\nSaya ingin memesan:\n*${productName}*\n\nMohon informasi ketersediaan dan harga. Terima kasih! 🍫`;
+    const product = products.find((p) => p.name === productName);
+    const price = product?.price || "";
+    const msg = `Halo Admin Pica! 👋\n\nSaya ingin memesan:\n*${productName}*${price ? `\nHarga: ${price}` : ""}\n\nMohon informasi ketersediaan. Terima kasih! 🍫`;
     window.open(
       `https://wa.me/628873418080?text=${encodeURIComponent(msg)}`,
       "_blank",
