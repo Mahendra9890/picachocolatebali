@@ -15,10 +15,42 @@ function initSocialIcons() {
   });
 }
 
+function initHeroVideo() {
+  const video = document.getElementById("heroVideo");
+  if (!video) return;
+
+  video.controls = false;
+  video.removeAttribute("controls");
+
+  const keepPlaying = () => {
+    if (video.paused && !video.ended) {
+      video.play().catch(() => {});
+    }
+  };
+
+  video.addEventListener("pause", keepPlaying);
+  video.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    keepPlaying();
+  });
+  video.addEventListener("contextmenu", (e) => e.preventDefault());
+
+  const tryPlay = () => video.play().catch(() => {});
+  tryPlay();
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) tryPlay();
+  });
+}
+
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initSocialIcons);
+  document.addEventListener("DOMContentLoaded", () => {
+    initSocialIcons();
+    initHeroVideo();
+  });
 } else {
   initSocialIcons();
+  initHeroVideo();
 }
 
 const mobileMenu = document.getElementById("mobileMenu");
@@ -182,4 +214,9 @@ document.querySelectorAll("img").forEach((img) => {
     e.preventDefault();
     return false;
   });
+});
+
+document.querySelectorAll(".hero-video").forEach((video) => {
+  video.addEventListener("dragstart", (e) => e.preventDefault());
+  video.addEventListener("mousedown", (e) => e.preventDefault());
 });
