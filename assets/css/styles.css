@@ -1,21 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --bg: #e8f5ec;
-  --bg-soft: #dcefe3;
-  --surface: #fbf9f4;
-  --surface-2: #f3faf5;
-  --surface-warm: #fff8ef;
+  --bg: #edf6f0;
+  --bg-soft: #e2f0e7;
+  --surface: #ffffff;
+  --surface-2: #f6fbf8;
   --primary: #2f9d63;
   --primary-light: #5bbf83;
   --primary-deep: #1e7f4d;
-  --accent: #c38a3b;
-  --accent-soft: #f5e6cf;
-  --chocolate: #5c3d2e;
+  --accent: #4a9d72;
   --text: #18392b;
   --text-muted: #3f5d4f;
-  --border: #bdd9c8;
-  --shadow: 0 12px 36px rgba(28, 101, 64, 0.14);
+  --border: #c5ddd0;
+  --shadow: 0 12px 36px rgba(28, 101, 64, 0.12);
   --container: min(1160px, 92vw);
   --font-display: "Cormorant Garamond", serif;
   --font-body: "Jost", sans-serif;
@@ -37,9 +34,9 @@ body {
   margin: 0;
   padding: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 90% 5%, rgba(195, 138, 59, 0.12), transparent 55%),
-    radial-gradient(ellipse 70% 45% at 5% 20%, rgba(91, 191, 131, 0.18), transparent 50%),
-    linear-gradient(165deg, #f5fff8 0%, var(--bg) 38%, #e2f0e6 100%);
+    radial-gradient(ellipse 75% 50% at 88% 8%, rgba(91, 191, 131, 0.14), transparent 55%),
+    radial-gradient(ellipse 65% 45% at 8% 18%, rgba(47, 157, 99, 0.1), transparent 50%),
+    linear-gradient(165deg, #f8fcfa 0%, var(--bg) 42%, #e4f2e9 100%);
   color: var(--text);
   font-family: var(--font-body);
   overflow-x: hidden;
@@ -76,7 +73,7 @@ img {
   left: 0;
   height: 3px;
   width: 0;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
   z-index: 60;
 }
 
@@ -89,8 +86,8 @@ header {
   z-index: 61;
   background: linear-gradient(
     180deg,
-    rgba(251, 249, 244, 0.96) 0%,
-    rgba(243, 250, 245, 0.94) 100%
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(246, 251, 248, 0.94) 100%
   );
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(189, 217, 200, 0.9);
@@ -100,7 +97,7 @@ header {
 }
 header.scrolled {
   box-shadow: 0 8px 24px rgba(21, 57, 43, 0.1);
-  background: rgba(251, 249, 244, 0.98);
+  background: rgba(255, 255, 255, 0.98);
 }
 nav {
   display: flex;
@@ -294,16 +291,16 @@ footer .brand img {
 .btn-ghost {
   border-color: var(--primary);
   color: var(--primary-deep);
-  background: linear-gradient(180deg, #fff, var(--surface-warm));
+  background: linear-gradient(180deg, #fff, var(--surface-2));
 }
 
 .hero {
   padding: clamp(2.8rem, 7vw, 6rem) 0;
   background: linear-gradient(
     135deg,
-    rgba(243, 250, 245, 0.9) 0%,
-    rgba(255, 248, 239, 0.75) 48%,
-    rgba(232, 245, 236, 0.85) 100%
+    rgba(246, 251, 248, 0.95) 0%,
+    rgba(237, 246, 240, 0.9) 55%,
+    rgba(228, 242, 233, 0.92) 100%
   );
   border-radius: 0 0 1.5rem 1.5rem;
 }
@@ -357,13 +354,13 @@ p {
   position: relative;
   border-radius: 1.35rem;
   overflow: hidden;
-  border: 1px solid rgba(195, 138, 59, 0.28);
+  border: 1px solid rgba(47, 157, 99, 0.22);
   box-shadow:
-    0 22px 50px rgba(28, 101, 64, 0.2),
-    0 0 0 1px rgba(255, 255, 255, 0.45) inset;
+    0 22px 50px rgba(28, 101, 64, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
   aspect-ratio: 16 / 10;
   min-height: 280px;
-  background: #2a1810;
+  background: #1a3d2c;
 }
 .hero-video {
   width: 100%;
@@ -416,8 +413,8 @@ p {
   margin-top: 0.85rem;
 }
 .promo-points span {
-  background: linear-gradient(135deg, #fff, var(--accent-soft));
-  border: 1px solid rgba(195, 138, 59, 0.25);
+  background: linear-gradient(135deg, #fff, var(--surface-2));
+  border: 1px solid var(--border);
   color: var(--primary-deep);
   padding: 0.35rem 0.68rem;
   border-radius: 999px;
@@ -437,8 +434,8 @@ p {
 .section:nth-of-type(even) {
   background: linear-gradient(
     180deg,
-    rgba(255, 248, 239, 0.45) 0%,
-    rgba(243, 250, 245, 0.35) 100%
+    rgba(246, 251, 248, 0.7) 0%,
+    rgba(237, 246, 240, 0.45) 100%
   );
 }
 .grid-2 {
@@ -460,11 +457,12 @@ p {
   gap: 0.8rem;
 }
 .stat {
-  padding: 1rem;
+  padding: 1.15rem 1rem;
   text-align: center;
-  background: linear-gradient(160deg, #fff 0%, var(--accent-soft) 120%);
-  border: 1px solid rgba(195, 138, 59, 0.2);
+  background: linear-gradient(165deg, #ffffff 0%, var(--surface-2) 100%);
+  border: 1px solid var(--border);
   border-radius: 0.85rem;
+  box-shadow: 0 6px 20px rgba(30, 127, 77, 0.06);
 }
 .stat-num {
   font: 700 clamp(1.8rem, 5vw, 2.6rem)/1 var(--font-display);
@@ -501,7 +499,7 @@ p {
 .media {
   position: relative;
   aspect-ratio: 2/3;
-  background: linear-gradient(160deg, #eaf5ee, #f8efe4);
+  background: linear-gradient(160deg, #eaf5ee, #edf5f0);
 }
 .media img {
   width: 100%;
@@ -606,11 +604,11 @@ footer .brand-sub {
 .social-icon {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(239, 255, 246, 0.7);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.85);
   color: #fff;
   font-size: 0;
   flex-shrink: 0;
@@ -619,11 +617,12 @@ footer .brand-sub {
     background 0.2s,
     border-color 0.2s;
 }
-.social-icon svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
+.social-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
   display: block;
+  pointer-events: none;
 }
 .social-icon:hover {
   background: rgba(255, 255, 255, 0.28);
