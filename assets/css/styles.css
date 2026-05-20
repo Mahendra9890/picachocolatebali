@@ -13,7 +13,7 @@
   --text-muted: #3f5d4f;
   --border: #c5ddd0;
   --shadow: 0 12px 36px rgba(28, 101, 64, 0.12);
-  --container: min(1160px, 92vw);
+  --container: 1160px;
   --font-display: "Cormorant Garamond", serif;
   --font-body: "Jost", sans-serif;
 }
@@ -29,10 +29,17 @@ img {
   pointer-events: none;
   -webkit-touch-callout: none;
 }
-html,
+html {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
   background:
     radial-gradient(ellipse 75% 50% at 88% 8%, rgba(91, 191, 131, 0.14), transparent 55%),
     radial-gradient(ellipse 65% 45% at 8% 18%, rgba(47, 157, 99, 0.1), transparent 50%),
@@ -41,6 +48,13 @@ body {
   font-family: var(--font-body);
   overflow-x: hidden;
   padding-top: 3.8rem;
+}
+main,
+header,
+footer,
+section {
+  width: 100%;
+  max-width: 100%;
 }
 a {
   text-decoration: none;
@@ -51,8 +65,12 @@ img {
   display: block;
 }
 .container {
-  width: var(--container);
-  margin: auto;
+  width: 100%;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 4vw, 1.5rem);
+  padding-right: clamp(1rem, 4vw, 1.5rem);
 }
 .skip-link {
   position: absolute;
@@ -690,6 +708,187 @@ footer .brand-sub {
 .animate.visible {
   opacity: 1;
   transform: none;
+}
+
+/* Story & Review marquee */
+.reviews-section {
+  overflow: hidden;
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+.reviews-header {
+  margin-bottom: 1.25rem;
+}
+.reviews-lead {
+  max-width: 52ch;
+  margin-top: 0.5rem;
+}
+.reviews-marquee-wrap {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+}
+.reviews-marquee {
+  overflow: hidden;
+  width: 100%;
+}
+.reviews-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  padding: 0.35rem 0 0.75rem;
+  animation: reviewScroll 55s linear infinite;
+}
+.reviews-marquee:hover .reviews-track {
+  animation-play-state: paused;
+}
+@keyframes reviewScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.review-card {
+  flex: 0 0 auto;
+  width: min(88vw, 340px);
+  padding: 1.15rem 1.2rem;
+  background: linear-gradient(155deg, #ffffff 0%, var(--surface-2) 100%);
+  border: 1px solid var(--border);
+  border-radius: 1.1rem;
+  box-shadow: 0 14px 32px rgba(30, 127, 77, 0.08);
+}
+.review-top {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+.review-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(47, 157, 99, 0.35);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(30, 127, 77, 0.12);
+}
+.review-avatar--initial {
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+}
+.review-avatar--s {
+  background: linear-gradient(135deg, #3d7a9a, #6ba8c7);
+}
+.review-avatar--d {
+  background: linear-gradient(135deg, #2a6b4a, #4a9d72);
+}
+.review-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+.review-role {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+  font-weight: 500;
+}
+.review-stars {
+  color: #e8b84a;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  margin-top: 0.25rem;
+}
+.review-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: clamp(1.75rem, 8vw, 2.35rem);
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+  .hero {
+    border-radius: 0;
+  }
+  .hero-wrap {
+    gap: 1rem;
+  }
+  .hero-visual {
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero-video {
+    min-height: 240px;
+    max-width: 100%;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-actions .btn {
+    width: 100%;
+  }
+  .promo-points {
+    gap: 0.4rem;
+  }
+  .promo-points span {
+    font-size: 0.76rem;
+    padding: 0.32rem 0.55rem;
+  }
+  nav {
+    padding: 0.65rem 0;
+  }
+  .brand-title {
+    font-size: 1.25rem;
+  }
+  .card.pad {
+    padding: 1rem;
+  }
+  .review-card {
+    width: min(92vw, 320px);
+  }
+  .reviews-track {
+    animation-duration: 45s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+  .reviews-marquee-wrap {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
 }
 
 @media (min-width: 768px) {

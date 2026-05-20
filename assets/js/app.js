@@ -15,6 +15,18 @@ function initSocialIcons() {
   });
 }
 
+function initReviewsMarquee() {
+  const track = document.getElementById("reviewsTrack");
+  if (!track || track.dataset.cloned === "1") return;
+  const cards = [...track.children];
+  cards.forEach((card) => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    track.appendChild(clone);
+  });
+  track.dataset.cloned = "1";
+}
+
 function initHeroVideo() {
   const video = document.getElementById("heroVideo");
   if (!video) return;
@@ -47,10 +59,12 @@ if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => {
     initSocialIcons();
     initHeroVideo();
+    initReviewsMarquee();
   });
 } else {
   initSocialIcons();
   initHeroVideo();
+  initReviewsMarquee();
 }
 
 const mobileMenu = document.getElementById("mobileMenu");
