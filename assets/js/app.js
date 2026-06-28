@@ -219,9 +219,8 @@ function applyLanguage(lang) {
   localStorage.setItem("picaLang", lang);
   document.documentElement.setAttribute("lang", lang === "id" ? "id" : "en");
   document.querySelectorAll("[data-id][data-en]").forEach((el) => {
-    const { id, en } = el.dataset;
-    if (id === en) return;
-    el.textContent = lang === "id" ? id : en;
+    if (el.dataset.id === el.dataset.en) return; // label tetap, skip translate
+    el.textContent = lang === "id" ? el.dataset.id : el.dataset.en;
   });
   document.querySelectorAll(".lang-toggle").forEach((btn) => {
     const idSpan = btn.querySelector(".lang-id");
