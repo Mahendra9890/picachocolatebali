@@ -1,17 +1,60 @@
+const WA_NUMBER = "628138838817"; // Nomor utama WA
+const WA_NUMBER_2 = "6281529433048"; // Nomor alternatif
+const WA_LINK = `https://wa.me/${WA_NUMBER}`;
+
 const SOCIAL_ICONS_HTML = `
-<a class="social-icon" href="https://www.instagram.com/picachocolatebali" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
-  <img src="./gambar/instagram.png" alt="" width="24" height="24" loading="lazy" decoding="async" />
+<a class="social-icon" href="https://wa.me/${WA_NUMBER}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
+  <img src="./gambar/whatsapp-glyph-black-logo.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />
 </a>
-<a class="social-icon" href="https://www.tiktok.com/@picachocolatebali" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">
-  <img src="./gambar/tiktok.png" alt="" width="24" height="24" loading="lazy" decoding="async" />
+<a class="social-icon" href="https://www.instagram.com/picachocolate.bali" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+  <img src="./gambar/instagram.png" alt="" width="20" height="20" loading="lazy" decoding="async" />
 </a>
-<a class="social-icon" href="https://www.youtube.com/@picachocolatebali" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
-  <img src="./gambar/youtube.png" alt="" width="24" height="24" loading="lazy" decoding="async" />
+<a class="social-icon" href="https://www.tiktok.com/@picachocolate.bali" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+  <img src="./gambar/tiktok.png" alt="" width="20" height="20" loading="lazy" decoding="async" />
+</a>
+<a class="social-icon" href="https://id.shp.ee/r3SZpPZf" target="_blank" rel="noopener noreferrer" aria-label="Shopee" title="Shopee">
+  <img src="./gambar/shopee.png" alt="" width="20" height="20" loading="lazy" decoding="async" />
 </a>`;
+
+const FLOATING_WA_HTML = `
+<a href="https://wa.me/${WA_NUMBER}"
+   class="floating-wa"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat via WhatsApp"
+   id="floatingWa">
+  <img src="./gambar/whatsapp-glyph-black-logo.svg" alt="" width="20" height="20" loading="lazy" decoding="async" />
+  <span data-id="Chat Kami" data-en="Chat Us">Chat Kami</span>
+</a>`;
+
+const NAV_SOCIAL_HTML = `
+<div class="nav-social">
+  <a href="https://wa.me/${WA_NUMBER}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
+    <img src="./gambar/whatsapp-glyph-black-logo.svg" alt="" width="18" height="18" loading="lazy" decoding="async" />
+  </a>
+  <a href="https://www.instagram.com/picachocolate.bali" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+    <img src="./gambar/instagram.png" alt="" width="18" height="18" loading="lazy" decoding="async" />
+  </a>
+</div>`;
 
 function initSocialIcons() {
   document.querySelectorAll(".socials").forEach((el) => {
     el.innerHTML = SOCIAL_ICONS_HTML;
+  });
+}
+
+function initFloatingWA() {
+  if (document.getElementById("floatingWa")) return;
+  document.body.insertAdjacentHTML("beforeend", FLOATING_WA_HTML);
+}
+
+function initNavSocial() {
+  document.querySelectorAll(".nav-links").forEach((nav) => {
+    if (nav.querySelector(".nav-social")) return;
+    const langToggle = nav.querySelector(".lang-toggle");
+    if (langToggle) {
+      langToggle.insertAdjacentHTML("beforebegin", NAV_SOCIAL_HTML);
+    }
   });
 }
 
@@ -60,11 +103,15 @@ if (document.readyState === "loading") {
     initSocialIcons();
     initHeroVideo();
     initReviewsMarquee();
+    initFloatingWA();
+    initNavSocial();
   });
 } else {
   initSocialIcons();
   initHeroVideo();
   initReviewsMarquee();
+  initFloatingWA();
+  initNavSocial();
 }
 
 const mobileMenu = document.getElementById("mobileMenu");
@@ -154,7 +201,7 @@ if (form) {
     const pesan = document.getElementById("pesan")?.value?.trim() || "";
     const message = `Halo Admin Pica! 👋\n\nNama: ${nama}\nEmail: ${email}\nWhatsApp: ${wa}\nAlamat: ${alamat}\n\nPesan:\n${pesan}`;
     window.open(
-      `https://wa.me/628873418080?text=${encodeURIComponent(message)}`,
+      `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`,
       "_blank",
     );
     if (toast) {
@@ -172,7 +219,9 @@ function applyLanguage(lang) {
   localStorage.setItem("picaLang", lang);
   document.documentElement.setAttribute("lang", lang === "id" ? "id" : "en");
   document.querySelectorAll("[data-id][data-en]").forEach((el) => {
-    el.textContent = lang === "id" ? el.dataset.id : el.dataset.en;
+    const { id, en } = el.dataset;
+    if (id === en) return;
+    el.textContent = lang === "id" ? id : en;
   });
   document.querySelectorAll(".lang-toggle").forEach((btn) => {
     const idSpan = btn.querySelector(".lang-id");
